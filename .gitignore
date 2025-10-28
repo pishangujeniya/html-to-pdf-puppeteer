@@ -1,3 +1,46 @@
+dist
+
+# Node.js dependencies
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnp/
+.pnp.js
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# Build artifacts
+dist/
+build/
+public/build/ # If you're building frontend assets into public/build
+
+# Logs
+logs/
+*.log
+
+# IDE and OS generated files
+# .vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Test coverage reports
+coverage/
+
+# Uploaded files (if applicable)
+uploads/
+
+# Other temporary files
+tmp/
+*.tmp
+*.swp
+
+# BELOW DEFAULT
+
 # Logs
 logs
 *.log
@@ -134,3 +177,6 @@ dist
 .yarn/build-state.yml
 .yarn/install-state.gz
 .pnp.*
+
+
+

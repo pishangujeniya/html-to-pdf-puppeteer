@@ -1,0 +1,17 @@
+{
+  "entryFile": "./src/index.ts",
+  "noImplicitAdditionalProperties": "throw-on-extras",
+  "controllerPathGlobs": ["./src/controllers/**/*Controller.ts"],
+  "spec": {
+    "outputDirectory": "./src/shared",
+    "specVersion": 3,
+    "basePath": "/",
+    "description": "HTML to PDF Puppeeter with tsoa",
+    "name": "HTML to PDF Puppeeter API",
+    "version": "1.0.0"
+  },
+  "routes": {
+    "routesDir": "./src/shared",
+    "middleware": "express"
+  }
+}

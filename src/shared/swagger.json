@@ -1,0 +1,65 @@
+{
+	"openapi": "3.0.0",
+	"components": {
+		"examples": {},
+		"headers": {},
+		"parameters": {},
+		"requestBodies": {},
+		"responses": {},
+		"schemas": {},
+		"securitySchemes": {}
+	},
+	"info": {
+		"title": "HTML to PDF Puppeeter API",
+		"version": "1.0.0",
+		"description": "HTML to PDF Puppeeter with tsoa",
+		"license": {
+			"name": "MIT"
+		},
+		"contact": {
+			"name": "Pishang Ujeniya"
+		}
+	},
+	"paths": {
+		"/PDF/HtmlToPdf": {
+			"post": {
+				"operationId": "HtmlToPdf",
+				"responses": {
+					"204": {
+						"description": "No content"
+					}
+				},
+				"description": "Convert HTML file to PDF",
+				"tags": [
+					"PDF"
+				],
+				"security": [],
+				"parameters": [],
+				"requestBody": {
+					"required": true,
+					"content": {
+						"multipart/form-data": {
+							"schema": {
+								"type": "object",
+								"properties": {
+									"file": {
+										"type": "string",
+										"format": "binary"
+									}
+								},
+								"required": [
+									"file"
+								]
+							}
+						}
+					}
+				}
+			}
+		}
+	},
+	"servers": [
+		{
+			"url": "/"
+		}
+	]
+}

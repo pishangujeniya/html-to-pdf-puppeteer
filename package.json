@@ -1,0 +1,48 @@
+{
+  "name": "html-to-pdf-puppeteer",
+  "version": "1.0.0",
+  "description": "API service to convert HTML to PDF using Puppeteer",
+  "author": "Pishang Ujeniya",
+  "license": "MIT",
+  "keywords": [
+    "html",
+    "pdf",
+    "puppeteer",
+    "api",
+    "typescript",
+    "express",
+    "tsoa"
+  ],
+  "main": "dist/index.js",
+  "scripts": {
+    "dev": "npm run build && nodemon --exec ts-node src/index.ts",
+    "build": "npm run tsoa:spec && npm run tsoa:routes && tsc",
+    "tsoa:spec": "tsoa spec --configuration tsoa.json",
+    "tsoa:routes": "tsoa routes --configuration tsoa.json",
+    "start": "node dist/index.js"
+  },
+  "dependencies": {
+    "@types/multer": "^2.0.0",
+    "@types/sharp": "^0.31.1",
+    "axios": "^1.11.0",
+    "cors": "^2.8.5",
+    "express": "^5.1.0",
+    "multer": "^2.0.2",
+    "puppeteer": "^24.26.1",
+    "sharp": "^0.34.4",
+    "swagger-ui-express": "^5.0.1",
+    "tsoa": "^6.6.0"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.19",
+    "@types/express": "^5.0.3",
+    "@types/node": "^24.3.0",
+    "@types/puppeteer": "^5.4.7",
+    "@types/swagger-jsdoc": "^6.0.4",
+    "@types/swagger-ui-express": "^4.1.8",
+    "nodemon": "^3.1.10",
+    "ts-node": "^10.9.2",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^5.9.2"
+  }
+}
