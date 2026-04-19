@@ -48,7 +48,11 @@ const swaggerPath = join(__dirname, 'shared', 'swagger.json')
 const swaggerDocument = JSON.parse(readFileSync(swaggerPath, 'utf-8'))
 swaggerDocument.servers = [{ url: BASE_PATH || '/' }]
 
-router.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument, {
+// swagger-ui-express internally redirects /api-docs → /api-docs/ using req.url
+// (which lacks the base path), so we intercept and redirect with the full prefix ourselves.
+router.get('/api-docs', (req, res) => res.redirect(301, `${BASE_PATH}/api-docs/`))
+router.use('/api-docs', swaggerUi.serve)
+router.get('/api-docs/', swaggerUi.setup(swaggerDocument, {
   swaggerOptions: {
     defaultModelsExpandDepth: -1,
   }
