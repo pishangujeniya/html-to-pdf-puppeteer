@@ -8,7 +8,7 @@
     "basePath": "/",
     "description": "HTML to PDF Puppeeter with tsoa",
     "name": "HTML to PDF Puppeeter API",
-    "version": "1.0.0"
+    "version": "1.0.1"
   },
   "routes": {
     "routesDir": "./src/shared",

@@ -35,6 +35,24 @@ export class HtmlToPdfHandler {
 
             const htmlContent = file.buffer.toString("utf-8");
 
+            const charsetMeta = '<meta charset="utf-8">';
+            const hasCharset = /charset/i.test(htmlContent);
+            let normalizedHtml: string;
+            if (hasCharset) {
+                normalizedHtml = htmlContent;
+            } else {
+                const headTagMatch = htmlContent.match(/<head[^>]*>/i);
+                if (headTagMatch && headTagMatch.index !== undefined) {
+                    const insertAt = headTagMatch.index + headTagMatch[0].length;
+                    normalizedHtml =
+                        htmlContent.slice(0, insertAt) +
+                        charsetMeta +
+                        htmlContent.slice(insertAt);
+                } else {
+                    normalizedHtml = charsetMeta + htmlContent;
+                }
+            }
+
             const browser = await puppeteer.launch({
                 executablePath: '/usr/bin/google-chrome',
                 headless: true,
@@ -43,7 +61,7 @@ export class HtmlToPdfHandler {
 
             const page = await browser.newPage();
 
-            await page.setContent(htmlContent, { waitUntil: "networkidle0" });
+            await page.setContent(normalizedHtml, { waitUntil: "networkidle0" });
 
             const pdfBuffer = await page.pdf({
                 format: "A4",
